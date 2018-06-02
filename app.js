@@ -24,3 +24,11 @@ bleno.on('stateChange', function(state) {
     bleno.stopAdvertising();
   }
 });
+
+bleno.on('advertisingStart', function(error) {
+  console.log('on -> advertisingStart: ' + (error ? 'error ' + error : 'success'));
+
+  if (!error) {
+    bleno.setServices([service]);
+  }
+});
